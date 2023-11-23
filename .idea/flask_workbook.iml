@@ -12,6 +12,7 @@
     <option name="TEMPLATE_FOLDERS">
       <list>
         <option value="$MODULE_DIR$/apps/minimalapp/templates" />
+        <option value="$MODULE_DIR$/apps/crud/templates" />
       </list>
     </option>
   </component>
