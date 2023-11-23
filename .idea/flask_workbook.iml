@@ -13,6 +13,7 @@
       <list>
         <option value="$MODULE_DIR$/apps/minimalapp/templates" />
         <option value="$MODULE_DIR$/apps/crud/templates" />
+        <option value="$MODULE_DIR$/apps/auth/templates" />
       </list>
     </option>
   </component>

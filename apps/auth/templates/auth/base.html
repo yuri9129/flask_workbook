@@ -6,17 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('crud.static', filename='style.css') }}">
 </head>
 <body>
-<div>
-    {% if current_user.is_authenticated %}
-    <p>
-        <span>{{ current_user.username }}</span>
-        <span><a href="{{ url_for('auth.logout') }}">ログアウト</a></span>
-    </p>
-    {% endif %}
-</div>
 {% block content %}{% endblock %}
 </body>
 </html>
