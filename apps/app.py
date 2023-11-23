@@ -4,23 +4,17 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CSRFProtect
 
+from apps.config import config
+
 db = SQLAlchemy()
 
 csrf = CSRFProtect()
 
-def create_app():
+def create_app(config_key):
     app = Flask(__name__)
 
-    app.config.from_mapping(
-        SECRET_KEY="MySecretKey",
-        SQLALCHEMY_DATABASE_URI=f"sqlite:///{Path(__file__).parent / 'local.sqlite'}",
-        SQLALCHEMY_TRACK_MODIFICATIONS=False,
-        SQLALCHEMY_ECHO=True,
-    )
+    app.config.from_object(config[config_key])
 
-    app.config.from_mapping(
-        WTF_SCRF_SECRET_KEY="MySecretKey",
-    )
     # SQLAlchemyとアプリの連携
     db.init_app(app)
     # Migrateとアプリの連携
