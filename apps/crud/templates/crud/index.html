@@ -1,14 +1,6 @@
-<!doctype html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ url_for('crud.static', filename='style.css') }}">
-    <title>ユーザー一覧</title>
-</head>
-<body>
+{% extends "crud/base.html" %}
+{% block title %} ユーザー一覧 {% endblock %}
+{% block content %}
 <h2>ユーザーの一覧</h2>
 <a href="{{ url_for('crud.create_user') }}">ユーザー新規作成</a>
 <table>
@@ -21,11 +13,10 @@
     {% for user in users %}
     <tr>
         <td>{{ user.id }}</td>
-        <td>{{ user.name }}</td>
+        <td>{{ user.username }}</td>
         <td>{{ user.email }}</td>
         <td><a href="{{ url_for('crud.edit_user',user_id=user.id) }}">編集</a></td>
     </tr>
     {% endfor %}
 </table>
-</body>
-</html>
+{% endblock %}
